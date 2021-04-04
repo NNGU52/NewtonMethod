@@ -7,55 +7,55 @@
 
 using namespace std;
 
-// функция F(x, y)
+// С„СѓРЅРєС†РёСЏ F(x, y)
 double F(double x, double y)
 {
 	return tan(x * y) - pow(x, 2);
 }
 
-// функция G(x, y)
+// С„СѓРЅРєС†РёСЏ G(x, y)
 double G(double x, double y)
 {
 	return x + log(y / 15.0);
 }
 
-// частная производная от F(x, y) по x
+// С‡Р°СЃС‚РЅР°СЏ РїСЂРѕРёР·РІРѕРґРЅР°СЏ РѕС‚ F(x, y) РїРѕ x
 double dF(double x , double y)
 {
 	double dx = 1e-6;
 	return (F(x + dx, y) - F(x , y)) / dx;
 }
 
-// частная производная от G(x, y) по x
+// С‡Р°СЃС‚РЅР°СЏ РїСЂРѕРёР·РІРѕРґРЅР°СЏ РѕС‚ G(x, y) РїРѕ x
 double dG(double x, double y)
 {
 	double dx = 1e-6;
 	return (G(x + dx, y) - G(x, y)) / dx;
 }
 
-// частная производная от F(x, y) по y
+// С‡Р°СЃС‚РЅР°СЏ РїСЂРѕРёР·РІРѕРґРЅР°СЏ РѕС‚ F(x, y) РїРѕ y
 double dF1(double x, double y)
 {
 	double dy = 1e-6;
 	return (F(x, y + dy) - F(x, y)) / dy;
 }
 
-// частная производная от G(x, y) по y
+// С‡Р°СЃС‚РЅР°СЏ РїСЂРѕРёР·РІРѕРґРЅР°СЏ РѕС‚ G(x, y) РїРѕ y
 double dG1(double x, double y)
 {
 	double dy = 1e-6;
 	return (G(x, y + dy) - G(x, y)) / dy;
 }
 
-// функция для вывода якобиана
+// С„СѓРЅРєС†РёСЏ РґР»СЏ РІС‹РІРѕРґР° СЏРєРѕР±РёР°РЅР°
 void print(vector<vector<double>> W0, int count = 5, int number = 9) 
 {
 
 	int m = W0.size();
 	int n = W0[0].size();
 
-	cout.setf(ios::right);  // установка флага вывода ; выравнивание по правой границе(по умолчанию)
-	cout.setf(ios::fixed);  // установка флага вывода ; вывод чисел с плавающей точкой в фиксированной форме(по умолчанию)
+	cout.setf(ios::right);  // СѓСЃС‚Р°РЅРѕРІРєР° С„Р»Р°РіР° РІС‹РІРѕРґР° ; РІС‹СЂР°РІРЅРёРІР°РЅРёРµ РїРѕ РїСЂР°РІРѕР№ РіСЂР°РЅРёС†Рµ(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ)
+	cout.setf(ios::fixed);  // СѓСЃС‚Р°РЅРѕРІРєР° С„Р»Р°РіР° РІС‹РІРѕРґР° ; РІС‹РІРѕРґ С‡РёСЃРµР» СЃ РїР»Р°РІР°СЋС‰РµР№ С‚РѕС‡РєРѕР№ РІ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕР№ С„РѕСЂРјРµ(РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ)
 	cout << setprecision(count);
 
 	for (int i = 0; i < m; i++) {
@@ -83,7 +83,7 @@ void print(vector<vector<double>> W0, int count = 5, int number = 9)
 	cout << endl;
 }
 
-// метод Гаусса
+// РјРµС‚РѕРґ Р“Р°СѓСЃСЃР°
 vector<double> Gauss(int n, int m, vector<vector<double>> matrix_original)
 {
 	vector<vector<double>> matrix(n, vector<double>(m, 0));
@@ -111,7 +111,7 @@ vector<double> Gauss(int n, int m, vector<vector<double>> matrix_original)
 				matrix[j][k] -= tmp * matrix[i][k];
 		}
 	}
-	/*обратный ход*/
+	/*РѕР±СЂР°С‚РЅС‹Р№ С…РѕРґ*/
 	xx[n - 1] = matrix[n - 1][n];
 	for (int i = n - 2; i >= 0; i--)
 	{
@@ -133,9 +133,9 @@ int main()
 	double x0;
 	double y0;
 	
-	cout << " Введите x0: ";
+	cout << " Р’РІРµРґРёС‚Рµ x0: ";
 	cin >> x0;
-	cout << " Введите y0: ";
+	cout << " Р’РІРµРґРёС‚Рµ y0: ";
 	cin >> y0;
 	cout << endl;
 	double x, y, x_, y_;
@@ -153,22 +153,22 @@ int main()
 		vector<double> result(2);
 		result = Gauss(n, m+1, slau);
 
-		x_ = x + result[0];                                                          // уточнение приближенного значения x
-		y_ = y + result[1];                                                          // уточнение приближенного значения y
+		x_ = x + result[0];                                                          // СѓС‚РѕС‡РЅРµРЅРёРµ РїСЂРёР±Р»РёР¶РµРЅРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ x
+		y_ = y + result[1];                                                          // СѓС‚РѕС‡РЅРµРЅРёРµ РїСЂРёР±Р»РёР¶РµРЅРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ y
 	
 		//cout << endl;
 
 		if ((abs(x_ - x) < eps) && (abs(y_ - y) < eps))
 		{
-			cout << setprecision(7) << " x:" << " " << x << endl << setprecision(7) << " y:" << " " << y << endl;  // вывод x, y (при выполнении 1 условия)
-			cout << " Кол-во итераций: " << k << endl;
+			cout << setprecision(7) << " x:" << " " << x << endl << setprecision(7) << " y:" << " " << y << endl;  // РІС‹РІРѕРґ x, y (РїСЂРё РІС‹РїРѕР»РЅРµРЅРёРё 1 СѓСЃР»РѕРІРёСЏ)
+			cout << " РљРѕР»-РІРѕ РёС‚РµСЂР°С†РёР№: " << k << endl;
 			break;
 		}
 		if (k > k_max)
 		{
 			cout << " K > Kmax " << endl;
-			cout << setprecision(7) << " x: " << x << endl << setprecision(7) << " y: " << y << endl;   // вывод x, y (при выполнении 2 условия)
-			cout << " Кол-во итераций: " << k << endl;
+			cout << setprecision(7) << " x: " << x << endl << setprecision(7) << " y: " << y << endl;   // РІС‹РІРѕРґ x, y (РїСЂРё РІС‹РїРѕР»РЅРµРЅРёРё 2 СѓСЃР»РѕРІРёСЏ)
+			cout << " РљРѕР»-РІРѕ РёС‚РµСЂР°С†РёР№: " << k << endl;
 			break;
 		}
 
