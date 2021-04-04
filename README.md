@@ -4,7 +4,7 @@
 ## Постановка задачи
 Решить систему нелинейных уравнений
 
-<p align="center"><img src="http://latex.codecogs.com/svg.latex?\left.\begin{matrix}F(x,y)&space;=&space;0&space;\\G(x,y)&space;=&space;0\end{matrix}\right\}"/></p>
+<p align="center"><img src="https://github.com/NNGU52/NewtonMethod/blob/main/screenshots/formula_1.png" width="102" height="45"/></p>
 
 методом Ньютона с заданной точностью ε. Определить необходимое для этого число итераций.  
 Исходные данные:  
